@@ -14,6 +14,25 @@ function updateUi( product , productStatus ){
         }
 
     }
+
+    totalProductPrice(inputProduct , product);
+
+}
+
+function totalProductPrice(productQuentity , productName){
+    
+    const productTotal = document.getElementById(`${productName}-total`);
+    const productInputText = productTotal.innerText;
+    const productInputNumber = parseInt(productInputText);
+
+    if( productName === "phone" ){
+        const totalProductPrice = parseInt(productQuentity.value) * 1219;
+        productTotal.innerText = totalProductPrice;
+    }else{
+        const totalProductPrice = parseInt(productQuentity.value) * 59;
+        productTotal.innerText = totalProductPrice;
+    }
+
 }
 
 // Phone Parpuss Also phone increment
