@@ -16,14 +16,27 @@ function updateUi( product , productStatus ){
     }
 
     totalProductPrice(inputProduct , product);
+    totalParchesAmount()
+}
 
+function totalParchesAmount(){
+    const phoneTotalAmount = parseInt(document.getElementById('phone-total').innerText);
+    const caseTotalAmount = parseInt(document.getElementById('case-total').innerText);
+   
+
+    const totalAmount = phoneTotalAmount + caseTotalAmount;
+    const tax = totalAmount / 10;
+    const total = tax + totalAmount;
+    document.getElementById('sub-total').innerText = totalAmount;
+    document.getElementById('tax-amount').innerText = tax;
+    document.getElementById('total-price').innerText = total;
 }
 
 function totalProductPrice(productQuentity , productName){
     
     const productTotal = document.getElementById(`${productName}-total`);
-    const productInputText = productTotal.innerText;
-    const productInputNumber = parseInt(productInputText);
+    // const productInputText = productTotal.innerText;
+    // const productInputNumber = parseInt(productInputText);  
 
     if( productName === "phone" ){
         const totalProductPrice = parseInt(productQuentity.value) * 1219;
